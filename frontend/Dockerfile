@@ -4,7 +4,7 @@ WORKDIR /frontend
 
 COPY . .
 
-RUN npm install
+RUN npm install react-router-dom@6
 
 EXPOSE 3000
 
