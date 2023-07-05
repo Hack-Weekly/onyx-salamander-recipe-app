@@ -10,12 +10,14 @@ const Login = () => {
                         <input type="text" placeholder="Username" id="user-name" required />
                         <input type="password" placeholder="Password" id="password" required />  </fieldset>
                     <fieldset>
-                        <input type="checkbox" id='remember' required /> <label htmlFor="remember">Remember Me</label> 
-                        <a href='#new-password'>Forgot Password?</a>
+                        <a href='#new-password'>Forgot Username/Password?</a>
                     </fieldset>
                     <input type='submit' value='submit' />
                 </form>
-            </body>
+                <p>Don't have an account?</p>
+                <p><a href='Register.jsx'> Sign up now!</a></p>
+
+            </body >
         </>
     )
 }

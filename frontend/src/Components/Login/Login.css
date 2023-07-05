@@ -1,16 +1,84 @@
 h1 {
-    margin: 2em, auto;
     font-size: 36pt;
     font-weight: bold;
     font-family: "Big Caslon";
-
+    color: #c0e7e4;
+    text-align: center;
+    padding-left: 15px;
 }
 
 div {
-    background-image: radial-gradient(#208CA4, #61ec8b);
-    background-image: radial-gradient(circle at top right, #208CA4, green, #61ec8b);
+    background-image: radial-gradient(#61ec8b, #208CA4);
+    background-image: radial-gradient(circle at top right, #61ec8b, green, #208CA4);
+    max-height: 800px;
+    max-width: 1000px;
+    display: block;
+}
+
+#root {
+    background-color: #c7f79a;
+}
+
+body {
+    background-color: #c7f79a;
+}
+
+/* form styles */
+form {
+    width: ;
+    height: ;
+    max-width: ;
+    min-width: ;
+    margin: ;
+    padding: 15px 0.5px 25px 25px;
 }
 
 fieldset {
     background-color: #c7f79a;
+    padding: 25px;
+    border: none;
+
+}
+
+/* text area input styles */
+input,
+textarea {
+    background-color: #c7f79a;
+    border: 1px solid #208CA4;
+    color: #c0e7e4;
+    margin: 2em auto;
+    width: 75%;
+    height: 3em;
+    display: block;
+}
+
+input:focus {
+    background-color: #208CA4;
+    border: #b8f06e;
+}
+
+::placeholder {
+    color: #b8f06e;
+    font-size: 14pt;
+    padding: 5px;
+}
+
+
+/* button styles */
+input[type="submit"] {
+    display: block;
+    width: 60%;
+    margin: 1.5em 25px;
+    height: 3em;
+    font-size: 1.1rem;
+    background-color: #61ec8b;
+    border-color: #0e8a75;
+    color: aliceblue;
+    min-width: 300px;
+    padding: 10px 25px;
+}
+
+p,
+a {
+    float: inline-start;
 }
