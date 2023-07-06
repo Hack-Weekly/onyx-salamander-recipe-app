@@ -8,8 +8,8 @@ const Homepage = () => {
   const [recipes, setRecipes] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const endpointKeyOne = 'temp';
-  const endpointKeyTwo = 'temp';
+  const endpointKeyOne = 'placeholder';
+  const endpointKeyTwo = 'placeholder';
 
   //Fetch data
   const fetchData = async(endpoint) => {
@@ -28,7 +28,7 @@ const Homepage = () => {
   }
 
   useEffect(() => {
-    fetchData(`https://api.spoonacular.com/recipes/random?number=10&apiKey=${endpointKeyOne}${endpointKeyTwo}`)
+    fetchData(`https://api.spoonacular.com/recipes/random?number=4&apiKey=${endpointKeyOne}${endpointKeyTwo}`)
   }, [])
 
   useEffect(() => {
@@ -40,14 +40,42 @@ const Homepage = () => {
   }, [recipes])
 
   if (isLoading) {
-    return <h2>Loading...</h2>
+    return (
+    <div id='homeComponent'>
+      <header>
+        <Header />
+      </header>
+      <section id='homeMain'>
+        <section id='recipesRandomizer'>
+          <h3>Unsure what to eat?</h3>
+          <h4>Randomize your next meal:</h4>
+          <i class="fa-solid fa-recycle iconRandomizer cursor-pointer"></i>
+        </section>
+        <section id='mainRecipesSection'>
+          <h2>Loading...</h2>
+        </section>
+      </section>
+    </div>
+    )
   } 
   else if (isError) {
     return (
-      <section>
-        <h2>Failed to load...</h2>
-        {/* <button onClick={fetchData}>Try again</button> */}
+    <div id='homeComponent'>
+      <header>
+        <Header />
+      </header>
+      <section id='homeMain'>
+        <section id='recipesRandomizer'>
+          <h3>Unsure what to eat?</h3>
+          <h4>Randomize your next meal:</h4>
+          <i class="fa-solid fa-recycle iconRandomizer cursor-pointer"></i>
+        </section>
+        <section id='mainRecipesSection'>
+          <h2>Failed to load...</h2>
+          {/* <button onClick={fetchData}>Try again</button> */}
+        </section>
       </section>
+    </div>
     )
   }
   else {
@@ -57,15 +85,16 @@ const Homepage = () => {
       <Header />
     </header>
     <section id='homeMain'>
-     {/*  <section id='recipesSocialSection'>
-        data
-      </section> */}
+      <section id='recipesRandomizer'>
+        <h3>Unsure what to eat?</h3>
+        <h4 className='subTitle'>Randomize your next meal:</h4>
+        <i className="fa-solid fa-recycle iconRandomizer cursor-pointer"></i>
+      </section>
       <section id='mainRecipesSection'>
         {
           (recipes != null) ? recipes.map((recipe) => <Instances key={recipe.id} recipe={recipe} />) : ''
         }
       </section>
-      
     </section>
   </div>
   )

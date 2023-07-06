@@ -1,3 +1,13 @@
+h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 54px;
+}
+
+h4 {
+    font-family: 'Ysabeau SC', sans-serif;
+    font-size: 26px;
+}
+
 #homeComponent {
     display: flex;
     flex-direction: column;
@@ -14,51 +24,17 @@ header {
 
 #homeMain {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     gap: 3%;
     width: 100%;
     min-height: 86vh;
 }
 
-#recipesSocialSection {
+#recipesRandomizer {
     display: flex;
-    flex-direction: column ;
-    align-items: center;
-    height: 62vh;
-    width: fit-content;
-    max-width: 30rem;
-    text-align: center;
-    background-color: black;
-    border-radius: 0.3rem;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    
-}
-
-#recipesSocialSection::-webkit-scrollbar {
-    width: 0.25rem;
-    
-}
-
-#recipesSocialSection::-webkit-scrollbar-thumb {
-    background-color: rgba(129, 129, 129, 0.7);
-    border-radius: 0.1rem;
-    
-}
-  
-#recipesSocialSection::-webkit-scrollbar-track {
-    background-color: black;
-}
-
-#recipesSocialSection h4 {
-    color: white;
-    font-size: 1.5rem;
-    align-self: flex-start;
-    margin-left: 6%;
-    margin-top: 6%;
-    margin-bottom: 10px;
-   
+    flex-direction: column;
+    line-height: 34px;
 }
 
 #mainRecipesSection {
@@ -66,4 +42,15 @@ header {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+
+.iconRandomizer {
+    margin-top: 30px;
+    align-self: center;
+    font-size: 42px;
+    transition: color 0.5s ease-in-out;
+}
+
+.iconRandomizer:hover {
+    color: rgb(0, 183, 255);
 }
