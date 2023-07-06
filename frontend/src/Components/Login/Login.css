@@ -7,31 +7,31 @@ h1 {
     padding-left: 15px;
 }
 
-div {
+/* div {
     background-image: radial-gradient(#61ec8b, #208CA4);
     background-image: radial-gradient(circle at top right, #61ec8b, green, #208CA4);
     max-height: 800px;
     max-width: 1000px;
     display: block;
-}
+} */
 
-#root {
+/* #root {
     background-color: #c7f79a;
-}
+} */
 
-body {
+/* body {
     background-color: #c7f79a;
-}
+} */
 
 /* form styles */
-form {
+/* form {
     width: ;
     height: ;
     max-width: ;
     min-width: ;
     margin: ;
     padding: 15px 0.5px 25px 25px;
-}
+} */
 
 fieldset {
     background-color: #c7f79a;

@@ -1,11 +1,20 @@
 import './Homepage.css'
+import {Header} from '../Header/Header'
+import Instances from '../Instances/Instances'
 
 const Homepage = () => {
   return (
-    <>
-      <h1>Homepage</h1>
-      <div>This is supposed to be the homepage!</div>
-    </>
+  <div id='homeComponent'>
+    <header>
+      <Header />
+    </header>
+    <section id='homeMain'>
+      <section id='recipesSocialSection'>
+        data
+      </section>
+      <Instances />
+    </section>
+  </div>
   )
 }
 export default Homepage
