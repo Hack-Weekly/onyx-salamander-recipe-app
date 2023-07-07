@@ -24,7 +24,7 @@ header {
 
 #homeMain {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     gap: 3%;
     width: 100%;
@@ -53,4 +53,12 @@ header {
 
 .iconRandomizer:hover {
     color: rgb(0, 183, 255);
+}
+
+@media only screen and (max-width: 1095px) {
+    #homeMain {
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 30px;
+    }
 }
