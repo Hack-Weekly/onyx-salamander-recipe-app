@@ -2,6 +2,7 @@ import './Homepage.css'
 import { useEffect, useState } from 'react'
 import {Header} from '../Header/Header'
 import Instances from '../Instances/Instances'
+import Details from '../Details/Details'
 
 const Homepage = () => {
 
@@ -41,11 +42,16 @@ const Homepage = () => {
   }, [recipes])
 
   const tumbler = () => {
+    setSelectedRecipe(null);
     fetchData(`https://api.spoonacular.com/recipes/random?number=4&apiKey=${endpointKeyOne}${endpointKeyTwo}`)
   }
 
   const handleRecipeClick = (recipe) => {
     setSelectedRecipe(recipe);
+  }
+
+  const handleBackButtonClick = () => {
+    setSelectedRecipe(null);
   }
 
   if (isLoading) {
@@ -80,8 +86,8 @@ const Homepage = () => {
           <i className="fa-solid fa-recycle iconRandomizer cursor-pointer" onClick={() => {tumbler()}}></i>
         </section>
         <section id='mainRecipesSection'>
-          <h2>Failed to load...</h2>
-          {/* <button onClick={fetchData}>Try again</button> */}
+          <h3>Failed to load...</h3>
+          <button className='inline-block rounded bg-neutral-800 px-6 pb-2 pt-2.5 text-xs font-medium uppercase text-neutral-50' onClick={() => {tumbler()}}>Try again</button>
         </section>
       </section>
     </div>
@@ -99,9 +105,9 @@ const Homepage = () => {
           <h4>Randomize your next meal:</h4>
           <i className="fa-solid fa-recycle iconRandomizer cursor-pointer" onClick={() => {tumbler()}}></i>
         </section>
-        <section id='mainRecipesSection'>
-          I AM WORKING!!
-          <Instances recipe={selectedRecipe} />
+        <section id='mainRecipesSection' style={{flexDirection: "row"}}>
+          <i className="fa-solid fa-arrow-left text-4xl mt-5 cursor-pointer" onClick={() => {handleBackButtonClick()}}></i>
+          <Details recipe={selectedRecipe} />
         </section>
       </section>
     </div>
