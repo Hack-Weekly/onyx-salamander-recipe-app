@@ -1,5 +1,6 @@
 import './Login.css'
 import { useState } from 'react';
+import { Header } from '../Header/Header';
 
 const Login = () => {
     
@@ -23,6 +24,7 @@ const Login = () => {
                 console.log('Login failed!');
             }
             }).catch((error) => {
+                console.log('error!!')
                 console.error('Error:', error);
             });
         }
@@ -30,19 +32,25 @@ const Login = () => {
     return (
         
         <div id='loginComponent'>
-            <div> <h1>User Login</h1></div>
-            <form onSubmit={handleSubmit}>
-                <fieldset>
-                    <input type="text" placeholder="Username" id="user-name" required />
-                    <input type="password" placeholder="Password" id="password" required />  
-                </fieldset>
-                <fieldset>
-                    <a href='#new-password'>Forgot Username/Password?</a>
-                </fieldset>
-                <input type='submit' value='submit' />
-            </form>
-            <p>Don't have an account?</p>
-            <p><a href='Register.jsx'> Sign up now!</a></p>
+            <header>
+                <Header />
+            </header>
+            <div id='formContainer' >
+                <h1>Login</h1>
+                <br />
+                <form id='loginForm' onSubmit={handleSubmit}>
+                    <fieldset>
+                        <input type="text" placeholder="Username" id="usernameField" required />
+                        <input type="password" placeholder="Password" id="passwordField" required />  
+                    </fieldset>
+                    <fieldset>
+                        <a href='#new-password' className='text-bold'>Forgot Username/Password?</a>
+                    </fieldset>
+                    <input className='submitBtn' type='submit' value='Login' />
+                </form>
+                <p>Don't have an account?</p>
+                <p><a href='Register.jsx'> Sign up now!</a></p>
+            </div>    
         </div >
         
     )

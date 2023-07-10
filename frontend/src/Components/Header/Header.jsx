@@ -8,8 +8,8 @@ export const Header = () => {
           <img src='https://escrituras-eremitas.com/wp-content/uploads/2023/07/salamanRecipesLogoBasic.png' alt="Sala Logo" />
         </Link>
         <nav>
-            <a href="/login">LOGIN</a> 
-            <a href="" className="salaBtn">REGISTER</a>
+            <Link to={'/login'}><div href="">LOGIN</div></Link>
+            <Link className="salaBtn" to={'/register'}>REGISTER</Link>
         </nav>
     </div>
   )

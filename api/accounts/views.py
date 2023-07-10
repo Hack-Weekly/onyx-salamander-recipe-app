@@ -2,18 +2,45 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from rest_framework import generics
+from django.contrib.auth.models import User
 from .serializers import UserRegistrationSerializer
 
 class UserRegistrationView(generics.CreateAPIView):
     serializer_class = UserRegistrationSerializer
 
 def login_view(request):
-    username = request.POST.get('username')
-    password = request.POST.get('password')
-    user = authenticate(request, username=username, password=password)
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-    if user is not None:
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False})
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
+
+def register_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+
+        if not username or not password or not email:
+            return JsonResponse({'success': False, 'error': 'Missing required fields'})
+
+        # Check if the username is already taken
+        if User.objects.filter(username=username).exists():
+            return JsonResponse({'success': False, 'error': 'Username is already taken'})
+
+        # Create a new user
+        user = User.objects.create_user(username=username, password=password, email=email)
+
         login(request, user)
-        return JsonResponse({'message': 'Login successful'})
-    else:
-        return JsonResponse({'message': 'Invalid credentials'}, status=401)
+
+        return JsonResponse({'success': True})
+    
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})
