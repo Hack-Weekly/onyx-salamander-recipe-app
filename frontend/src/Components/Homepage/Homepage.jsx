@@ -10,7 +10,7 @@ const Homepage = () => {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const endpointKeyOne = 'placeholder';
+  const endpointKeyOne = '49a8a21845e54place';
   const endpointKeyTwo = '6d6bc2a3b1904ff5cd3';
 
   //Fetch data
