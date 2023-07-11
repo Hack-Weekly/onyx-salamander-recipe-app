@@ -8,7 +8,11 @@ from .serializers import UserRegistrationSerializer
 class UserRegistrationView(generics.CreateAPIView):
     serializer_class = UserRegistrationSerializer
 
+def index(request):
+    return render(request, "accounts/index.html")
+
 def login_view(request):
+
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -21,9 +25,11 @@ def login_view(request):
         else:
             return JsonResponse({'success': False})
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
+    
 
 
 def register_view(request):
+    print('this is registration')
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')

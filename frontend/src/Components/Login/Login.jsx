@@ -11,7 +11,7 @@ const Login = () => {
         e.preventDefault();
 
 
-        fetch('http://127.0.0.1:8000/login/', {
+        fetch('http://127.0.0.1:8000/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,7 +24,6 @@ const Login = () => {
                 console.log('Login failed!');
             }
             }).catch((error) => {
-                console.log('error!!')
                 console.error('Error:', error);
             });
         }
@@ -39,13 +38,25 @@ const Login = () => {
                 <h1>Login</h1>
                 <br />
                 <form id='loginForm' onSubmit={handleSubmit}>
-                    <fieldset>
-                        <input type="text" placeholder="Username" id="usernameField" required />
-                        <input type="password" placeholder="Password" id="passwordField" required />  
-                    </fieldset>
-                    <fieldset>
-                        <a href='#new-password' className='text-bold'>Forgot Username/Password?</a>
-                    </fieldset>
+                    <input 
+                        type="text" 
+                        placeholder="Username" 
+                        id="usernameField" 
+                        name='username'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required 
+                    />
+                    <input 
+                        type="password" 
+                        placeholder="Password" 
+                        id="passwordField" 
+                        name='password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)} 
+                        required 
+                    />  
+                    <a href='#new-password' className='text-bold'>Forgot Username/Password?</a>
                     <input className='submitBtn' type='submit' value='Login' />
                 </form>
                 <p>Don't have an account?</p>
