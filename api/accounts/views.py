@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from rest_framework import generics
 from django.contrib.auth.models import User
 from .serializers import UserRegistrationSerializer
+from django.views.decorators.csrf import csrf_exempt
 
 class UserRegistrationView(generics.CreateAPIView):
     serializer_class = UserRegistrationSerializer
@@ -27,8 +28,9 @@ def login_view(request):
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
     
 
-
+@csrf_exempt
 def register_view(request):
+    
     print('this is registration')
     if request.method == 'POST':
         username = request.POST.get('username')
